@@ -1,0 +1,43 @@
+@import '../../styles/variables.module.scss';
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    border: 2px $secundary-color solid;
+    width: 230px;
+    height: fit-content;
+    margin-top: 20px;
+    background-color: $gray-2;
+    border-radius: 10px;
+    &-img{
+        width: auto;
+        height: fit-content;       
+    }
+    &-img img{
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+    }
+    &-img img:hover{
+        cursor: pointer;
+    }
+    &-dates{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        background-color: $secundary-color;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        height: fit-content;
+        font-weight: bold;
+    }
+}
+.mainContainer:hover{
+    transform: scale(1.1, 1.1);
+}
