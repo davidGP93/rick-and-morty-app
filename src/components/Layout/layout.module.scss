@@ -1,0 +1,9 @@
+@import '../../styles/variables.module.scss';
+
+body{
+    background-color: $principal-color;
+}
+.generalLayout {
+    max-width: 1024px;
+    margin: 0 auto;
+}
