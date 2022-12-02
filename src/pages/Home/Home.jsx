@@ -15,7 +15,6 @@ function Home() {
     getData();
   }, []);
 
-  console.log(listCharacter);
 
   return (
     <Layout>
@@ -28,7 +27,7 @@ function Home() {
               name={character.name}
               status={character.status}
               gender={character.gender}
-              id={character.id}
+              key={`character_${character.id}`}
             />
           );
         })}

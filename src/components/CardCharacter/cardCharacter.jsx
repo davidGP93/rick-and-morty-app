@@ -1,7 +1,8 @@
 import React from "react";
+import propTypes from 'prop-types'
 import cardStyles from "./CardCharacter.module.scss";
 
-function CardCharacter({ character, name, gender, status, id }) {
+export default function CardCharacter({ character, name, gender, status}) {
   return (
     <article className={cardStyles.mainContainer}>
       <figure className={cardStyles["mainContainer-img"]}>
@@ -16,4 +17,9 @@ function CardCharacter({ character, name, gender, status, id }) {
   );
 }
 
-export default CardCharacter;
+ CardCharacter.propTypes = {
+  character: propTypes.string,
+  name: propTypes.string,
+  gender: propTypes.string,
+  status: propTypes.string,
+ }

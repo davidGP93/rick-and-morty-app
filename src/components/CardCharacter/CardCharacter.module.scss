@@ -8,11 +8,11 @@
     display: flex;
     flex-direction: column;
     border: 2px $secundary-color solid;
-    width: 230px;
-    height: fit-content;
+    height: 100%;
     margin-top: 20px;
     background-color: $gray-2;
     border-radius: 10px;
+    align-self: center;
     &-img{
         width: auto;
         height: fit-content;       
@@ -34,7 +34,7 @@
         background-color: $secundary-color;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        height: fit-content;
+        height: 100%;
         font-weight: bold;
     }
 }
