@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { getCharacterInfo } from "../../../services/services";
 import stylesDetail from "./detailCharacter.module.scss";
 
@@ -14,6 +16,12 @@ export default function DetailCharacter() {
   }, [characterId]);
 
   return (
+    <>
+    <section className={stylesDetail.ctabox}>
+      <Link className={stylesDetail["ctabox-btn"]} to="/">
+        <FontAwesomeIcon icon={faCircleArrowLeft}/> Back home
+      </Link>
+    </section>
     <section className={stylesDetail.containerGeneral}>
       {characterInfo.map((character) => (
         <article className={stylesDetail.containerDetail} key={`character_${character.id}`}>
@@ -33,5 +41,6 @@ export default function DetailCharacter() {
       ))}
 
     </section>
+    </>
   );
 }

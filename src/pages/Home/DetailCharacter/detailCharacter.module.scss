@@ -60,3 +60,27 @@
 .unknown{
     background-color: $gray-2;
 }
+.ctabox{
+    display: flex;
+    padding: 20px;
+    background-color: $secundary-color;
+    border: 5px $principal-color solid;
+    border-radius: 10px;
+
+    &-btn{
+        padding: 10px;
+        border-radius: 125px;
+        background:#00ADEE;
+        color: #000;
+        border-width: 0px;
+        font-size: large;
+        margin-left: 10px;
+        text-decoration: none;
+
+        &:hover{
+            transform: scale(1.1, 1.1);
+            background-color: $principal-color;
+            color: aliceblue;
+        }
+    }
+}
