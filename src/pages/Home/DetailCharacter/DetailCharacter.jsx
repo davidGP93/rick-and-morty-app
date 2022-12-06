@@ -10,7 +10,6 @@ export default function DetailCharacter() {
   useEffect(() => {
     getCharacterInfo(characterId).then((response) => {
       setCharacterInfo([response]);
-      console.log(response);
     });
   }, [characterId]);
 
