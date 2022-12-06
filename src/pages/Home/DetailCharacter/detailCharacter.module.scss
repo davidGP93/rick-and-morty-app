@@ -1,0 +1,62 @@
+@import '../../../styles/variables.module.scss';
+
+.containerGeneral{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    
+   
+}
+.containerDetail{
+    display: flex;
+    background-color: $principal-color;
+    border-radius: 10px;
+    width: 700px;
+    height: 340px;
+    border: 15px $secundary-color solid;
+
+    &:hover{
+        transform: scale(1.1, 1.1);
+        transition:linear;
+        cursor: pointer;
+    }
+
+    &-img{
+        max-width:auto;
+        height: auto;
+    }
+
+    &-img img{
+        width: 100%;
+        height: 100%;
+    }
+
+    &-info{
+        display:flex;
+        width: 320px;
+        flex-direction: column;
+        font-weight: bold;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        color: aliceblue;
+
+    }
+    &-info p span{
+        display: inline-block;
+        border-radius: 50%;
+        padding: 8px;
+        color: black;
+    }
+}
+.Alive{
+    background-color: #11F522;
+}
+.Dead{
+    background-color: red;
+}
+.unknown{
+    background-color: $gray-2;
+}

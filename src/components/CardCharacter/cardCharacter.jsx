@@ -1,16 +1,19 @@
 import React from "react";
-import propTypes from 'prop-types'
+import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 import cardStyles from "./CardCharacter.module.scss";
 
-export default function CardCharacter({ character, name, gender, status}) {
+export default function CardCharacter({ character, name, gender, status, id}) {
   return (
     <article className={cardStyles.mainContainer}>
+      <Link to={`/character/${id}`}>
       <figure className={cardStyles["mainContainer-img"]}>
-        <img src={character} alt="character" />
+        <img src={character} alt={`${name}-character`} />
       </figure>
+      </Link>
       <div className={cardStyles["mainContainer-dates"]}>
         <h3 >Name: {name}</h3>
-        <span>Status: {status}</span>
+        <span>Status: <p className={cardStyles[`${status}`]}>{status}</p></span>
         <span>Gender: {gender}</span>
       </div>
     </article>

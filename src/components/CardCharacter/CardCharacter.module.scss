@@ -37,6 +37,20 @@
         height: 100%;
         font-weight: bold;
     }
+    &-dates span p{
+        display: inline-block;
+        border-radius: 50%;
+        padding: 8px;
+    }
+}
+.Alive{
+    background-color: #11F522;
+}
+.Dead{
+    background-color: red;
+}
+.unknown{
+    background-color: $gray-2;
 }
 .mainContainer:hover{
     transform: scale(1.1, 1.1);
