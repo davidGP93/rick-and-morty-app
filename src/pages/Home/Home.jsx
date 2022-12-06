@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getListCharacters } from "../../services/services";
-import Layout from "../../components/Layout/Layout";
 import CardCharacter from "../../components/CardCharacter/cardCharacter";
 import homeStyles from "./Home.module.scss";
 
@@ -17,7 +16,7 @@ function Home() {
 
 
   return (
-    <Layout>
+    <>
       <hr />
       <section className={homeStyles["home-container"]}>
         {listCharacter.map((character) => {
@@ -27,12 +26,13 @@ function Home() {
               name={character.name}
               status={character.status}
               gender={character.gender}
+              id={character.id}
               key={`character_${character.id}`}
             />
           );
         })}
       </section>
-    </Layout>
+    </>
   );
 }
 
