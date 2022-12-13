@@ -1,0 +1,32 @@
+@import "../../styles/variables.module.scss";
+
+.mainContainer {
+  display: flex;
+  gap: 20px;
+  height: 70px;
+  padding: 15px;
+
+  &-select {
+    border-radius: 125px;
+    background: $gray-1;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    border: 3px $secundary-color solid;
+  }
+  &-select:hover {
+    transform: scale(1.1, 1.1);
+    background: $secundary-color;
+    cursor: pointer;
+  }
+}
+hr {
+  height: 5px;
+  max-width: 1400px;
+  background: linear-gradient(
+    90deg,
+    $principal-color 25%,
+    $secundary-color 100%
+  );
+  border-width: 1px;
+}
