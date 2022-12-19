@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import cardStyles from "./CardCharacter.module.scss";
 
-export default function CardCharacter({ character, name, gender, status, id}) {
+export default function CardCharacter({ character, name, gender, status, id, location}) {
   return (
     <article className={cardStyles.mainContainer}>
       <Link to={`/character/${id}`}>
@@ -13,6 +13,7 @@ export default function CardCharacter({ character, name, gender, status, id}) {
       </Link>
       <div className={cardStyles["mainContainer-dates"]}>
         <h3 >Name: {name}</h3>
+        <h3>location {location}</h3>
         <span>Status: <p className={cardStyles[`${status}`]}>{status}</p></span>
         <span>Gender: {gender}</span>
       </div>
