@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import cardStyles from "./CardCharacter.module.scss";
 
-export default function CardCharacter({ character, name, gender, status, id}) {
+export default function CardCharacter({ character, name, gender, status, id, location}) {
   return (
     <article className={cardStyles.mainContainer}>
       <Link to={`/character/${id}`}>

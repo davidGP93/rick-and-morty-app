@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { getListCharacters } from "../../services/services";
 import CardCharacter from "../../components/CardCharacter/cardCharacter";
+
 import homeStyles from "./Home.module.scss";
 
-function Home() {
-  const [listCharacter, setListCharacter] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const response = await getListCharacters();
-      setListCharacter(response?.results);
-    };
-    getData();
-  }, []);
-
+function Home({ listCharacters }) {
   return (
     <>
-      <hr />
       <section className={homeStyles["home-container"]}>
-        {listCharacter.map((character) => {
+        {listCharacters.map((character) => {
           return (
             <CardCharacter
               character={character.image}
