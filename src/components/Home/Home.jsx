@@ -1,8 +1,8 @@
 import React, { useState, useMemo, useEffect } from "react";
-import Home from "../../pages/Home/Home";
+import ListCharacters from "../../pages/Home/ListCharacters/ListCharacters";
 import { getListCharacters } from "../../services/services";
 import NotFound from "../notFound/NotFound";
-import filterStyles from "./Filters.module.scss";
+import filterStyles from "./Home.module.scss";
 
 function Filters() {
   const [listCharacters, setListCharacters] = useState([]);
@@ -145,7 +145,7 @@ function Filters() {
       {listCharactersView.length === 0 ? (
         <NotFound />
       ) : (
-        <Home listCharacters={listCharactersView} />
+        <ListCharacters listCharacters={listCharactersView} />
       )}
     </>
   );

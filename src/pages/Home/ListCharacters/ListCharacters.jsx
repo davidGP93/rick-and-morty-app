@@ -1,6 +1,6 @@
-import CardCharacter from "../../components/CardCharacter/cardCharacter";
+import CardCharacter from "../../../components/CardCharacter/cardCharacter";
 
-import homeStyles from "./Home.module.scss";
+import homeStyles from "./ListCharacters.module.scss";
 
 function Home({ listCharacters }) {
   return (
