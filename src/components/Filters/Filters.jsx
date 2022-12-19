@@ -1,12 +1,14 @@
 import React, { useState, useMemo, useEffect } from "react";
 import Home from "../../pages/Home/Home";
 import { getListCharacters } from "../../services/services";
+import NotFound from "../notFound/NotFound";
 import filterStyles from "./Filters.module.scss";
 
 function Filters() {
   const [listCharacters, setListCharacters] = useState([]);
   const [statusFiltered, setStatusFiltered] = useState("Todos");
   const [locationFiltered, setLocationFiltered] = useState("locations");
+  const [genderFiltered, setGenderFiltered] = useState("gender");
 
   useEffect(() => {
     const getData = async () => {
@@ -16,7 +18,7 @@ function Filters() {
     getData();
   }, []);
 
-  const handleFilteredGender = (event) => {
+  const handleFilteredStatus = (event) => {
     setStatusFiltered(event.target.value);
   };
 
@@ -24,17 +26,72 @@ function Filters() {
     setLocationFiltered(event.target.value);
   };
 
+  const handleFilterGender = (event) => {
+    setGenderFiltered(event.target.value);
+  };
+
   const listCharactersView = useMemo(() => {
     const currentStatusFiltered = statusFiltered;
     const currentLocation = locationFiltered;
-    if (currentStatusFiltered === "Todos" && currentLocation === "locations")
+    const currentGender = genderFiltered;
+    if (
+      currentStatusFiltered === "Todos" &&
+      currentLocation === "locations" &&
+      currentGender === "gender"
+    )
       return listCharacters;
     const characterGender = listCharacters.filter((character) => {
-      if (currentStatusFiltered === "Todos" && currentLocation !== "locations")
-        return character.location.name === currentLocation;
-      if (currentStatusFiltered !== "Todos" && currentLocation === "locations")
+      if (
+        currentStatusFiltered === "Todos" &&
+        currentLocation !== "locations" &&
+        currentGender !== "gender"
+      )
+        return (
+          character.location.name === currentLocation &&
+          character.gender === currentGender
+        );
+      if (
+        currentStatusFiltered !== "Todos" &&
+        currentLocation === "locations" &&
+        currentGender === "gender"
+      )
         return character.status === currentStatusFiltered;
-      if (currentStatusFiltered !== "Todos" && currentLocation !== "locations")
+      if (
+        currentStatusFiltered !== "Todos" &&
+        currentLocation !== "locations" &&
+        currentGender !== "gender"
+      )
+        return (
+          character.status === currentStatusFiltered &&
+          character.location.name === currentLocation &&
+          character.gender === currentGender
+        );
+      if (
+        currentStatusFiltered === "Todos" &&
+        currentLocation !== "locations" &&
+        currentGender === "gender"
+      )
+        return character.location.name === currentLocation;
+      if (
+        currentStatusFiltered === "Todos" &&
+        currentLocation === "locations" &&
+        currentGender !== "gender"
+      )
+        return character.gender === currentGender;
+      if (
+        currentStatusFiltered !== "Todos" &&
+        currentLocation === "locations" &&
+        currentGender !== "gender"
+      )
+        return (
+          character.status === currentStatusFiltered &&
+          character.gender === currentGender
+        );
+      if (
+        currentStatusFiltered !== "Todos" &&
+        currentLocation !== "locations" &&
+        currentGender === "gender"
+      )
         return (
           character.status === currentStatusFiltered &&
           character.location.name === currentLocation
@@ -42,14 +99,14 @@ function Filters() {
     });
 
     return characterGender;
-  }, [statusFiltered, listCharacters, locationFiltered]);
+  }, [statusFiltered, listCharacters, locationFiltered, genderFiltered]);
 
   return (
     <>
       <section className={filterStyles.mainContainer}>
         <select
           className={filterStyles["mainContainer-select"]}
-          onChange={handleFilteredGender}
+          onChange={handleFilteredStatus}
         >
           <option value="Todos">Todos</option>
           <option value="Alive">Alive</option>
@@ -74,10 +131,19 @@ function Filters() {
           <option value="Anatomy Park">Anatomy Park</option>
           <option value="Unknown">unknown</option>
         </select>
+
+        <select
+          className={filterStyles["mainContainer-select"]}
+          onChange={handleFilterGender}
+        >
+          <option value="gender">Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
       </section>
       <hr />
       {listCharactersView.length === 0 ? (
-        <p>No hay resultados para esta busqueda</p>
+        <NotFound />
       ) : (
         <Home listCharacters={listCharactersView} />
       )}
@@ -86,5 +152,3 @@ function Filters() {
 }
 
 export default Filters;
-
-// crear componente notfound y corregir la grilla
