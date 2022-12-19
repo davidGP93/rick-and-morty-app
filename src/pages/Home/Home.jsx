@@ -14,7 +14,6 @@ function Home() {
     getData();
   }, []);
 
-
   return (
     <>
       <hr />
@@ -27,6 +26,7 @@ function Home() {
               status={character.status}
               gender={character.gender}
               id={character.id}
+              location={character.location.name}
               key={`character_${character.id}`}
             />
           );

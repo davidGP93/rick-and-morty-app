@@ -13,6 +13,7 @@ export default function CardCharacter({ character, name, gender, status, id}) {
       </Link>
       <div className={cardStyles["mainContainer-dates"]}>
         <h3 >Name: {name}</h3>
+        <h3>Location: {location}</h3>
         <span>Status: <p className={cardStyles[`${status}`]}>{status}</p></span>
         <span>Gender: {gender}</span>
       </div>
