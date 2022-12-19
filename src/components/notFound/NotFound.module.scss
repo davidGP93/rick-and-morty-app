@@ -1,0 +1,26 @@
+@import '../../styles/variables.module.scss';
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 100px 400px;
+    border: 5px $secundary-color solid;
+    width: fit-content;
+    background-color: $principal-color;
+    color: aliceblue;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 125px;
+
+    &:hover{
+        transform: scale(1.1, 1.1);
+        border: 5px $principal-color solid;
+        background-color: $secundary-color;
+        color: black;
+    }
+
+    &-message{
+        padding: 20px;
+    }
+}
